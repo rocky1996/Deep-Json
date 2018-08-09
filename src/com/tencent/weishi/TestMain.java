@@ -2,10 +2,6 @@ package com.tencent.weishi;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class TestMain {
@@ -125,45 +121,53 @@ public class TestMain {
 //    }
 
 
-    public void  analysisJson(Object objJson) {
-        //如果obj为json数组
-        if (objJson instanceof JSONArray) {
-            JSONArray objArray = (JSONArray) objJson;
-            for (int i = 0; i < objArray.size(); i++) {
-                analysisJson(objArray.get(i));
-            }
-        }else if(objJson instanceof JSONObject){
-            JSONObject jsonObject = (JSONObject)objJson;
-//            Iterator it = jsonObject.keys();
-//            while(it.hasNext()){
-//                String key = it.next().toString();
-//                Object object = jsonObject.get(key);
-//                //如果得到的是数组
-//                if(object instanceof JSONArray){
-//                    JSONArray objArray = (JSONArray)object;
-//                    analysisJson(objArray);
-//                }
-//                //如果key中是一个json对象
-//                else if(object instanceof JSONObject){
-//                    analysisJson((JSONObject)object);
-//                }
-//                //如果key中是其他
-//                else{
-//                    System.out.println("["+key+"]:"+object.toString()+" ");
-//                }
+//    public void  analysisJson(Object objJson) {
+//        //如果obj为json数组
+//        if (objJson instanceof JSONArray) {
+//            JSONArray objArray = (JSONArray) objJson;
+//            for (int i = 0; i < objArray.size(); i++) {
+//                analysisJson(objArray.get(i));
 //            }
-            Map<String, Object> map =jsonObject;
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                System.out.println(entry.getKey() +"："+entry.getValue());
-            }
-
-        }
-    }
+//        }else if(objJson instanceof JSONObject){
+//            JSONObject jsonObject = (JSONObject)objJson;
+////            Iterator it = jsonObject.keys();
+////            while(it.hasNext()){
+////                String key = it.next().toString();
+////                Object object = jsonObject.get(key);
+////                //如果得到的是数组
+////                if(object instanceof JSONArray){
+////                    JSONArray objArray = (JSONArray)object;
+////                    analysisJson(objArray);
+////                }
+////                //如果key中是一个json对象
+////                else if(object instanceof JSONObject){
+////                    analysisJson((JSONObject)object);
+////                }
+////                //如果key中是其他
+////                else{
+////                    System.out.println("["+key+"]:"+object.toString()+" ");
+////                }
+////            }
+//            Map<String, Object> map =jsonObject;
+//            for (Map.Entry<String, Object> entry : map.entrySet()) {
+//                System.out.println(entry.getKey() +"："+entry.getValue());
+//            }
+//
+//        }
+//    }
 
     public static void main(String[] args) {
-        TestMain test = new TestMain();
+//        TestMain test = new TestMain();
+//        String JsonContext = new Util().ReadFile("d:\\json\\text.json");
+//        JSONObject jsonObject = JSONObject.fromObject(JsonContext);
+//        test.analysisJson(jsonObject);
         String JsonContext = new Util().ReadFile("d:\\json\\text.json");
-        JSONObject jsonObject = JSONObject.fromObject(JsonContext);
-        test.analysisJson(jsonObject);
+        System.out.println(JsonContext);
+//        JsonContext.replace("\\\"","'");
+//        JSONObject jsonObject = JSONObject.fromObject(JsonContext);
+//        Map<String, Object> map =jsonObject;
+//        for (Map.Entry<String, Object> entry : map.entrySet()) {
+//            System.out.println(entry.getKey() +"："+entry.getValue());
+//        }
     }
 }
